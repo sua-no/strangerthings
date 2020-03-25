@@ -18,7 +18,6 @@ window.addEventListener("DOMContentLoaded", function () {
     function galleryClick() {
         for (var i = 0; i < galleryImg.length; i++) {
             galleryImg[i].addEventListener("click", select);
-            galleryImg[i].children[0].style.filter = "grayscale(100%)";
         }
     }
 
@@ -30,9 +29,13 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     //img 클릭이벤트
     function select() {
+        if (this == prevSelect) {
+            return;
+        }
         let gallerySrc = this.children[0].getAttribute("src");
         selectImg.setAttribute("src", gallerySrc);
         //grayscale 변경
+        galleryImg[0].children[0].style.filter = "grayscale(100%)";
         this.children[0].style.filter = "grayscale(0%)";
         if (prevSelect != null) {
             prevSelect.children[0].style.filter = "grayscale(100%)";

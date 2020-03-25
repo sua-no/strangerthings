@@ -1,6 +1,26 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 
 /* font-family: 'Raleway', sans-serif; */
+.loadImg {
+    width: 100%;
+    height: 100vh;
+    padding-top: 35vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #000;
+    z-index: 1000;
+    box-sizing: border-box;
+    opacity: 1;
+    transition: .7s ease-in-out;
+}
+
+.loadImg video {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+
 #wrap {
     width: 100%;
 }
@@ -171,9 +191,10 @@ header .menuToggleBtn span.trans:nth-child(3) {
 
 #main .mainCopy span {
     display: inline-block;
-    transform: translateY(100px);
+    transform: translateY(100%);
     box-sizing: border-box;
-    animation: contentstup 0.3s 0.3s forwards;
+    animation: contentstup 0.3s 3.3s forwards;
+    overflow: hidden;
 }
 
 #main .mainCopy p:nth-child(1) span {
@@ -183,11 +204,11 @@ header .menuToggleBtn span.trans:nth-child(3) {
 
 #main .mainCopy p:nth-child(1) span:nth-child(2) {
     margin: 0 5px;
-    animation-delay: 0.8s;
+    animation-delay: 3.8s;
 }
 
 #main .mainCopy p:nth-child(1) span:nth-child(3) {
-    animation-delay: 1.3s;
+    animation-delay: 4.3s;
 }
 
 #main .mainCopy p:nth-child(2) span {
@@ -196,13 +217,13 @@ header .menuToggleBtn span.trans:nth-child(3) {
 }
 
 #main .mainCopy p:nth-child(2) span:nth-child(1) {
-    transform: translateY(190px);
-    animation-delay: 2s;
+    transform: translateY(100%);
+    animation-delay: 5s;
 }
 
 #main .mainCopy p:nth-child(2) span:nth-child(2) {
     transform: translateY(190px);
-    animation-delay: 2.5s;
+    animation-delay: 5.5s;
 }
 
 /* contents */
@@ -405,12 +426,16 @@ section .inner .subCopy {
     transition: all 0.3s;
 }
 
+#gallery .galleryInner ul li img.grayscale {
+    filter: grayscale(100%);
+}
+
 #gallery .galleryInner ul li:nth-child(1) img {
     filter: grayscale(0%);
 }
 
 #gallery .galleryInner ul li:hover img {
-    filter: grayscale(0%);
+    filter: grayscale(0%) !important;
 }
 
 /* leftnav */
@@ -472,6 +497,9 @@ footer p {
 
 /* tablet */
 @media all and (min-width: 720px) {
+    .loadImg video {
+        width: 20%;
+    }
 
     /* header */
     header {
@@ -737,8 +765,7 @@ footer p {
     #characters .inner .characterInfo ul li {
         width: 23%;
         position: static;
-
-        transition: all 0.5s ease-in;
+        transition: all 0.3s ease-in;
     }
 
     #characters .characterInfo ul li.disable {

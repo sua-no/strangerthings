@@ -1,10 +1,9 @@
 window.addEventListener("DOMContentLoaded", function () {
     const slide = document.getElementsByClassName("slide");
-    let rightNav = document.getElementsByClassName("rightNav");
-    let span = rightNav[0].querySelectorAll("span");
+    const rightNav = document.getElementsByClassName("rightNav");
+    const span = rightNav[0].querySelectorAll("span");
     let pageIndex = 0;
     let clickIndex;
-    let selected = span[0];
     let timer = true;
     for (var i = 0; i < span.length; i++) {
         span[i].addEventListener("click", spanClick);
@@ -72,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
         let hole = 0;
         while ((target = target.previousSibling) != null) {
             if (target.nodeType != 3) {
-                hole += 1;
+                hole++;
             }
         }
         return hole;
