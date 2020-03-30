@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
-    const slide = document.getElementsByClassName("slide");
-    const rightNav = document.getElementsByClassName("rightNav");
+    const slide = document.querySelectorAll(".slide");
+    const rightNav = document.querySelectorAll(".rightNav");
     const span = rightNav[0].querySelectorAll("span");
     let pageIndex = 0;
     let clickIndex;

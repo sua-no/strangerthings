@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
     const menuToggleBtn = document.getElementsByClassName("menuToggleBtn");
     const gnb = document.getElementById("gnb");
-    const gnbClick = document.getElementsByClassName("gnbClick");
     const menuSpan = menuToggleBtn[0].querySelectorAll("span");
     menuToggleBtn[0].addEventListener("click", function () {
         if (gnb.classList.contains("gnbClick") == true) {

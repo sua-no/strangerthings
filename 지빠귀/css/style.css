@@ -507,7 +507,6 @@ footer p {
     }
 
     header #gnb {
-        padding-top: 0;
         width: 65%;
         display: block;
         float: right;
@@ -533,7 +532,6 @@ footer p {
 
     header #gnb ul li a {
         padding: 2% 0;
-        font-size: 16px;
         font-weight: bold;
         color: #a5a5a5;
         transition: 0.5s;
