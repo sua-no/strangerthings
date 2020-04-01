@@ -401,6 +401,7 @@ footer p {
     font-weight: 100;
     font-size: 14px;
 }
+/* tablet */
 @media all and (max-width: 1024px){
     section .inner{
         padding: 230px 0;
@@ -452,11 +453,15 @@ footer p {
     .characters .inner .characterInfo ul li:nth-child(even){
         margin-top: 0;
     }
+    .characters .inner .characterInfo ul li:hover{
+        transform: translateY(0px);
+    }
     /* gallery */
     .gallery .galleryInner ul li{
         width: 50%;
     }
 }
+/* mobile */
 @media all and (max-width: 720px){
     /* header */
     header{
@@ -559,9 +564,10 @@ footer p {
     .characters .subCopy p{
         display: none;
     }
-    .characters .characterInfo{
+    .characters .inner .characterInfo{
         width: 60vw;
         margin: 0 auto;
+        padding-top: 0;
         overflow: hidden;
         position: relative;
     }
