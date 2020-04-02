@@ -73,7 +73,7 @@ section {
 section .inner{
     width: 70%;
     margin: 0 auto;
-    padding: 230px 0;
+    padding: 230px 0 ;
     overflow: hidden;
 }
 section .inner .subCopy{
@@ -273,6 +273,9 @@ section .inner .viewBtn a:hover{
     margin-top: 10px;
     color: #fbb74d;
 }
+.characters .inner .characterInfo .characterBtn{
+    display: none;
+}
 /* gallery */
 .gallery{
     z-index: 20;
@@ -282,7 +285,60 @@ section .inner .viewBtn a:hover{
     width: 100%;
 }
 .gallery .galleryInner .selectImg{
-    display: none;
+    width: 60vw;
+    height: 40vh;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    left: calc(50% - 30vw);
+    top: calc(50% - 16vh);
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 30px ;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+.gallery .galleryInner .selectImg.active{
+    transform: translateY(0%);
+    opacity: 1;
+    z-index: 5;
+}
+.gallery .galleryInner .selectImg img{
+    width: 40%;
+}
+.gallery .galleryInner .selectImg .galleryBtn{
+    width: 50%;
+    position: absolute;
+}
+.btn {
+    height: 30px;
+    width: 19px;
+    opacity: 0.6;
+    transition: all 0.3s ease-in;
+}
+.b1 {
+    float: left;
+    background: url("../img/icon/characters_arrow.png") no-repeat left center /cover;
+}
+.b2 {
+    float: right;
+    background: url("../img/icon/characters_arrow.png") no-repeat right center /cover;
+}
+.b1:hover,.b2:hover,.closer:hover {
+    opacity: 1;
+}
+.closer{
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: url("../img/icon/close.png") no-repeat center center /contain;
+    opacity: 0.6;
+    cursor: pointer;
 }
 .gallery .galleryInner ul{
     width: 80%;
@@ -404,13 +460,15 @@ footer p {
 /* tablet */
 @media all and (max-width: 1024px){
     section .inner{
-        padding: 230px 0;
+        padding: 275px 0;
+        padding: 26.8554% 0 ;
     }
     section .inner .subCopy{
         text-align: center;
     }
     section .inner .viewBtn {
         width: 90px;
+        margin: 0 auto;
         overflow: hidden;
     }
     /* trailers */
@@ -457,6 +515,18 @@ footer p {
         transform: translateY(0px);
     }
     /* gallery */
+    .gallery .galleryInner .selectImg{
+        width: 64vw;
+        height: 60%;
+        left: calc(50% - 32vw);
+        top: calc(50% - 23vh);
+    }
+    .gallery .galleryInner .selectImg img{
+        width: 70%;
+    }
+    .gallery .galleryInner .selectImg .galleryBtn{
+        width: 85%;
+    }
     .gallery .galleryInner ul li{
         width: 50%;
     }
@@ -478,6 +548,7 @@ footer p {
         justify-content: space-between;
         cursor: pointer;
         z-index: 50;
+        transition: .35s;
     }
     header .menuToggleBtn span{
         width: 100%;
@@ -487,20 +558,30 @@ footer p {
         transform-origin: 13% 13%;
     }
     header .gnb{
-        width: 300px;
+        width: 40vw;
         height: 100vh;
         padding: 150px 5%;
         position: absolute;
         right: 0;
         top: 0;
         background: rgba(0, 0, 0,.8);
-        display: none;
+        transform: translateX(100%);
+        transition: .35s;
     }
     header .gnb ul li{
-        display: block;
+        padding: 8% 0;
     }
-    header .gnb ul li a{
-        padding: 6% 0;
+    header .menuToggleBtn.active span:nth-child(1){
+        transform: rotate(45deg);
+    }
+    header .menuToggleBtn.active span:nth-child(2){
+        opacity: 0;
+    }
+    header .menuToggleBtn.active span:nth-child(3){
+        transform: rotate(-45deg);
+    }
+    header .gnb.active{
+        transform: translateX(0);
     }
     .rightNav{
         display: none;
@@ -568,21 +649,61 @@ footer p {
         width: 60vw;
         margin: 0 auto;
         padding-top: 0;
-        overflow: hidden;
         position: relative;
     }
-    .characters .characterInfo ul{
+    .characters .inner .characterInfo div{
         width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+
+    }
+    .characters .inner .characterInfo ul{
+        width: 100%;
+        padding: 0;
         position: absolute;
         left: 0;
         transition: 0.5s;
     }
-    .characters .characterInfo ul li {
+    .characters .inner .characterInfo ul li {
         width: 100%;
         position: absolute;
     }
-    .characters .characterInfo ul li img{
+    .characters .inner .characterInfo ul li img{
         width: 100%;
     }
-    
+    .characters .inner .characterInfo .characterBtn {
+        width: 78vw;
+        height: 30px;
+        display: block;
+        position: absolute;
+        left: calc(50% - 39vw);
+        top: calc(50% - 15px);
+        z-index: 100;
+    }
+    .characters .inner .characterInfo .characterBtn .b1{
+        display: none;
+    }
+    /* gallery */
+    .gallery .galleryInner .selectImg{
+        width: 100%;
+        height: 40%;
+        left: 0;
+        top: calc(50% - 12vh);
+    }
+    .gallery .galleryInner .selectImg img{
+        width: 70%;
+    }
+    .gallery .galleryInner .selectImg .galleryBtn{
+        width: 90%;
+    }
+    .gallery .galleryInner .selectImg .galleryBtn .btn{
+        width: 14px;
+    }
+    .closer{
+        width: 16px;
+        height: 16px;
+        right: 20px;
+        top: 20px;
+    }
 }

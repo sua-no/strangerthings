@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function () {
     //인디게이터 컬러 변경
     function spanColor() {
         for (var i = 0; i < span.length; i++) {
-            if (span[i].classList.contains("backRed") == true) {
+            if (span[i].classList.contains("backRed")) {
                 span[i].classList.remove("backRed");
             }
         }
@@ -76,4 +76,4 @@ window.addEventListener("DOMContentLoaded", function () {
         }
         return hole;
     }
-})
+});

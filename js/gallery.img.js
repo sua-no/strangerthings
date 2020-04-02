@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", mediaQuery);
     //즉시실행 -미디어쿼리
     function mediaQuery() {
-        const mediaQuery = window.matchMedia("screen and (max-width: 1023px)");
+        const mediaQuery = window.matchMedia("screen and (max-width: 720px)");
         if (mediaQuery.matches) {
             galleryClick();
         } else {
