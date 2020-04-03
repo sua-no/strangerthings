@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
     const galleryList = document.querySelector(".galleryInner ul");
     const selectImg = document.querySelector(".selectImg");
+    const scrollBar = document.querySelector(".scrollBar");
     const popImg = selectImg.querySelector("img");
     const closer = document.querySelector(".closer");
     const prevG = document.querySelector(".prevG");
@@ -19,6 +20,7 @@ window.addEventListener("DOMContentLoaded", function () {
         idx = index(target);
         imgChange();
         selectImg.classList.add("active");
+        scrollBar.style.display = "none";
     }
     //li 인덱스
     function index(target) {
@@ -32,6 +34,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     function hide() {
         selectImg.classList.remove("active");
+        scrollBar.style.display = "block";
     }
     function imgChange() {
         imgSrc = galleryList.children[idx].children[0].getAttribute("src");
