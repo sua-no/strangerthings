@@ -1,0 +1,203 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+.wrap{
+    width: 100%;
+}
+/* header */
+header {
+    width: 100%;
+    height: 180px;
+    margin-top: 50px;
+    padding: 0 10%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .menuToggleBtn {
+    display: none;
+}
+header .gnb ul {
+    text-align: right;
+}
+header .gnb ul li {
+    display: inline-block;
+    margin-left: 50px;
+}
+header .gnb ul li a {
+    padding: 2% 0;
+    font-weight: bold;
+    color: #a5a5a5;
+    transition: 0.5s;
+}
+header .gnb ul li:hover a {
+    color: #c00000c5;
+}
+/* contents */
+section{
+    width: 100%;
+    height: 100vh;
+    padding: 270px 0 100px;
+    background: url("../img/back-trailer.jpg") no-repeat center center/cover;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+section .visualCopy div{
+    margin-bottom: 60px;
+    text-align: center;
+    color: #fff;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: visualup .7s forwards;
+}
+@keyframes visualup{
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+section .visualCopy h2{
+    font-size: 40px;
+}
+section .visualCopy span{
+    font-size: 20px;
+    opacity: .7;
+}
+section .visualCopy h2:after{
+    width: 30px;
+    height: 1px;
+    background: #a5a5a5;
+    display: block;
+    content: '';
+    margin: 20px auto;
+}
+section .trailerList{
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(0, 0, 0,.5);
+}
+section .trailerList ul{
+    width: 100%;
+    padding: 5% 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+section .trailerList ul li{
+    width: 40%;
+    margin-bottom: 5%;
+    text-align: center;
+    margin-top: 100px;
+    opacity: 0;
+    transition: 1s .3s;
+
+}
+section .trailerList ul li:nth-child(even){
+    transition-delay: .6s;
+}
+section .trailerList ul li figure{
+    width: 100%;
+}
+section .trailerList ul li figure strong{
+    font-size: 23px;
+    color: #fbb74d;
+    opacity: 0.8;
+}
+section .trailerList ul li figure video{
+    width: 100%;
+    margin: 15px 0;
+}
+section .trailerList ul li figure figcaption{
+    width: 100%;
+    line-height: 1.5em;
+    color: #676767;
+}
+/* footer */
+footer {
+    position: fixed;
+    left: 10%;
+    bottom: 8%;
+    z-index: 100;
+}
+footer p {
+    color: #676767;
+    font-weight: 100;
+    font-size: 14px;
+}
+/* tablet */
+@media all and (max-width: 1024px){
+    section .trailerList ul li{
+        width: 80%;
+    }
+}
+/* mobile */
+@media all and (max-width: 720px){
+    /* header */
+    header{
+        height: 150px;
+        margin-top: 0;
+        padding: 0 5%;
+    }
+    header .menuToggleBtn {
+        display: block;
+        width: 34px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 50;
+        transition: .35s;
+    }
+    header .menuToggleBtn span{
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transition: .35s;
+        transform-origin: 13% 13%;
+    }
+    header .gnb{
+        width: 40vw;
+        height: 100vh;
+        padding: 150px 5%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: rgba(0, 0, 0,.8);
+        transform: translateX(100%);
+        transition: .35s;
+    }
+    header .gnb ul li{
+        padding: 8% 0;
+    }
+    header .menuToggleBtn.active span:nth-child(1){
+        transform: rotate(45deg);
+    }
+    header .menuToggleBtn.active span:nth-child(2){
+        opacity: 0;
+    }
+    header .menuToggleBtn.active span:nth-child(3){
+        transform: rotate(-45deg);
+    }
+    header .gnb.active{
+        transform: translateX(0);
+    }
+    section{
+        padding-top: 22%;
+    }
+    section .trailerList ul{
+        padding: 12% 0;
+    }
+    section .trailerList ul li{
+        margin-bottom: 65px;
+    }
+    section .trailerList ul li:last-child{
+        margin-bottom: 0;
+    }
+}
