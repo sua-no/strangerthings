@@ -9,9 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
     inIt();
     //resize event - mediaquery, ul size
-    window.addEventListener("resize", function () {
-        inIt();
-    });
+    window.addEventListener("resize", inIt);
     nextBtn.addEventListener("click", slideLeft);
     prevBtn.addEventListener("click", slideRight);
     //mediaquery - ul, li size
