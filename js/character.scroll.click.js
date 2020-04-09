@@ -9,8 +9,9 @@ window.addEventListener("DOMContentLoaded", function () {
         character = document.querySelector(".castInfo div span:nth-of-type(1)"),
         cast = document.querySelector(".castInfo div span:nth-of-type(2)"),
         caption = document.querySelector(".castInfo div figcaption");
+
     let liIdx = 0, idx = 0, data, figNode, imgNode, txtBox, txt1, txt2, liWidth = 0, check = true;
-    ;
+
     //load JSON
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "character.json");

@@ -18,6 +18,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transform: translateY(0%);
+    transition: .35s;
+}
+header.active{
+    transform: translateY(-100%);
 }
 header .menuToggleBtn {
     display: none;
@@ -77,10 +82,164 @@ section .visualCopy h2:after{
     content: '';
     margin: 20px auto;
 }
-section .characterList{
+section .galleryInner{
     width: 80%;
     margin: 0 auto;
     background: rgba(0, 0, 0,.5);
+    padding: 4% 10%;
+    box-sizing: border-box;
+    position: relative;
+}
+section .galleryInner .selectImg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 30px ;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+section .galleryInner .selectImg.active{
+    transform: translateY(0%);
+    opacity: 1;
+    z-index: 5;
+}
+section .galleryInner .selectImg.active2{
+    height: 50%;
+    top: calc(50% - 25%);
+}
+section .galleryInner .selectImg img{
+    width: 40%;
+}
+section .galleryInner .selectImg .galleryBtn{
+    width: 50%;
+    position: absolute;
+}
+.btn {
+    height: 30px;
+    width: 19px;
+    opacity: 0.6;
+    transition: all 0.3s ease-in;
+}
+.b1 {
+    float: left;
+    background: url("../img/icon/characters_arrow.png") no-repeat left center /cover;
+}
+.b2 {
+    float: right;
+    background: url("../img/icon/characters_arrow.png") no-repeat right center /cover;
+}
+.b1:hover,.b2:hover,.closer:hover {
+    opacity: 1;
+}
+.closer{
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: url("../img/icon/close.png") no-repeat center center /contain;
+    opacity: 0.6;
+    cursor: pointer;
+}
+section .galleryInner{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
+section .galleryInner ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+    opacity: 0;
+    transition: .5s .5s;
+}
+section .galleryInner ul li{
+    width: 24%;
+    margin-bottom: 1%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+section .galleryInner ul li img{
+    width: 100%;
+    transition: .5s ease-in-out;
+}
+section .galleryInner ul li::before{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) ;
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+}
+section .galleryInner ul li::after{
+    width: 20px;
+    height: 20px;
+    background: url('../img/icon/gallery_mag.png') no-repeat center center/contain;
+    display: block;
+    content: '';
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+    z-index: 2;
+    visibility: hidden;
+}
+section .galleryInner ul li:hover img {
+    transform: scale(1.1);
+}
+section .galleryInner ul li:hover::before
+{
+    opacity: 1;
+}
+section .galleryInner ul li:hover::after
+{
+    visibility: visible;
+}
+section .galleryInner .more{
+    width: 90px;
+    height: 30px;
+    margin-top: 3%;
+    position: relative;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    cursor: pointer;
+    overflow: hidden;
+}
+section .galleryInner .more:after{
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background: rgba(255,255,255,0.5);
+    opacity: 0;
+    transition: .35s;
+
+}
+section .galleryInner .more:hover:after{
+    left: 0;
+    opacity: 1;
 }
 /* footer */
 footer {
@@ -95,7 +254,17 @@ footer p {
     font-size: 14px;
 }
 /* tablet */
-@media all and (max-width: 1024px){}
+@media all and (max-width: 1024px){
+    section .galleryInner ul li{
+        width: 32%;
+    }
+    section .galleryInner .selectImg .galleryBtn{
+        width: 70%;
+    }
+    section .galleryInner .selectImg img{
+        width: 60%;
+    }
+}
 /* mobile */
 @media all and (max-width: 720px){
     /* header */
@@ -150,5 +319,21 @@ footer p {
     }
     section{
         padding-top: 22%;
+    }
+    section .galleryInner ul li{
+        width: 100%;
+        margin-bottom: 2%;
+        cursor: default;
+    }
+    section .galleryInner .selectImg{
+        display: none;
+    }
+    section .galleryInner ul li:hover::before
+    {
+        opacity: 0;
+    }
+    section .galleryInner ul li:hover::after
+    {
+        visibility: hidden;
     }
 }

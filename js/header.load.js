@@ -1,10 +1,29 @@
 window.addEventListener("DOMContentLoaded", function () {
-    const header = document.querySelector("header");
+    const header = document.querySelector("header"),
+        characterBox = document.querySelector(".characterBox div:nth-of-type(1)");
+    let scroll = true;
+
     const headerHTML = new XMLHttpRequest();
     headerHTML.open("GET", "header.html");
     headerHTML.send(null);
     headerHTML.addEventListener('load', function () {
         header.innerHTML = headerHTML.response;
         btnManager();
+        // characterBox.addEventListener("wheel", function () {
+        //     scroll = false;
+        //     setTimeout(function () {
+        //         scroll = true;
+        //     }, 100);
+        // });
+        window.addEventListener("wheel", headerHide);
+        function headerHide() {
+            if (scroll) {
+                if (event.deltaY > 0) {
+                    header.classList.add("active");
+                } else {
+                    header.classList.remove("active");
+                }
+            }
+        }
     });
 });

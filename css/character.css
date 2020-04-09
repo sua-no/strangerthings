@@ -18,6 +18,11 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transform: translateY(0%);
+    transition: .35s;
+}
+header.active{
+    transform: translateY(-100%);
 }
 header .menuToggleBtn {
     display: none;
@@ -82,7 +87,7 @@ section .characterList{
     margin: 0 auto;
     background: rgba(0, 0, 0,.5);
     padding: 5% 13%;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 section .characterList .characterBox{
     margin-bottom: 90px;
@@ -240,7 +245,7 @@ footer p {
         justify-content: space-between;
         cursor: pointer;
         z-index: 50;
-        transition: .35s;
+        transition: .5s;
     }
     header .menuToggleBtn span{
         width: 100%;

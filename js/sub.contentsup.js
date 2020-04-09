@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const up = document.querySelectorAll(".up");
     const windowHeight = window.innerHeight;
     let scrollTop, upOffset;
-
+    // console.log(up);
     contentsUp();
     section.addEventListener("scroll", contentsUp);
     //scroll - contents up
