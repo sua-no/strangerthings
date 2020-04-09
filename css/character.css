@@ -227,7 +227,7 @@ footer p {
 @media all and (max-width: 720px){
     /* header */
     header{
-        height: 150px;
+        height: 13%;
         margin-top: 0;
         padding: 0 5%;
     }
@@ -284,12 +284,12 @@ footer p {
     section .castInfo{
         transition: 1s .35s;
     }
+    section .castInfo .fig01{
+        display: none;
+    }
     section .castInfo figure img{
         display: block;
         margin-top: 30px;
-    }
-    section .castInfo figure div figcaption{
-        display: none;
     }
     section .castInfo figure:first-of-type img{
         margin-top: 0;

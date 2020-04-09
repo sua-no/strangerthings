@@ -140,7 +140,7 @@ footer p {
 @media all and (max-width: 720px){
     /* header */
     header{
-        height: 150px;
+        height: 13%;
         margin-top: 0;
         padding: 0 5%;
     }

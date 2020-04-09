@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
     const characterBox = document.querySelector(".characterBox div:nth-of-type(1)"),
         castList = document.querySelector(".characterBox ul"),
-        castListLi = document.querySelectorAll(".characterBox ul li"),
         leftGradient = document.querySelector(".leftGradient"),
         rightGradient = document.querySelector(".rightGradient"),
         boxBar = document.querySelector(".boxBar"),
@@ -10,18 +9,22 @@ window.addEventListener("DOMContentLoaded", function () {
         character = document.querySelector(".castInfo div span:nth-of-type(1)"),
         cast = document.querySelector(".castInfo div span:nth-of-type(2)"),
         caption = document.querySelector(".castInfo div figcaption");
-    let liIdx = 0, idx = 0, timer = true, data, figNode, imgNode, txtBox, txt1, txt2;
+    let liIdx = 0, idx = 0, data, figNode, imgNode, txtBox, txt1, txt2, liWidth = 0, check = true;
+    ;
     //load JSON
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "character.json");
     xhr.send(null);
     xhr.onload = function () {
         data = JSON.parse(xhr.responseText);
+        //mobile - tag추가
         castMobile();
         window.addEventListener("resize", castMobile);
     }
+    ulSize();
+    characterBox.addEventListener("wheel", listMove);
+    //pc - figure data change
     castList.addEventListener("click", castSelect);
-
     function castSelect(e) {
         target = e.target;
         for (; target.nodeName != "LI"; target = target.parentNode);
@@ -52,33 +55,43 @@ window.addEventListener("DOMContentLoaded", function () {
             figImg.parentElement.classList.remove("active");
         }, 800);
     }
-
-    characterBox.addEventListener("wheel", listMove);
-    function listMove(e) {
-        this.scrollLeft -= (e.wheelDelta || -e.detail);
-        event.preventDefault();
-        if (timer) {
-            timer = false;
-            if (e.deltaY > 0) {
-                idx -= 10;
-                leftGradient.style.display = "block";
-            } else {
-
-                idx += 10;
-                if (idx == 100) {
-                    return;
-                }
-            }
-            bar();
+    //scroll size
+    function ulSize() {
+        for (var i = 0; i < castList.children.length; i++) {
+            liWidth += castList.children[i].offsetWidth;
         }
+        liWidth += 13 * (castList.children.length - 1);
+    }
+    //horiziontal scroll
+    function listMove(e) {
+        this.scrollLeft -= e.wheelDelta;
+        event.preventDefault();
+
+        idx = this.scrollLeft / (liWidth - castList.offsetWidth) * 100;
+        if (e.deltaY > 0) {
+            if (idx == 100) {
+                rightGradient.style.display = "none";
+            } else {
+                leftGradient.style.display = "block";
+                rightGradient.style.display = "block";
+            }
+        } else {
+            if (idx == 0) {
+                leftGradient.style.display = "none";
+            } else {
+                rightGradient.style.display = "block";
+                leftGradient.style.display = "block";
+            }
+        }
+        bar();
     }
     function bar() {
-        boxBar.style.width = 10 + -idx + "%";
+        boxBar.style.width = idx + "%";
     }
-    var check = true;
+    //mobile - JSON append
     function castMobile() {
-        const mediaQuery = window.matchMedia("screen and (max-width: 720px)");
-        const mediaQueryPC = window.matchMedia("screen and (min-width: 720px)");
+        const mediaQuery = window.matchMedia("screen and (max-width: 720px)"),
+            mediaQueryPC = window.matchMedia("screen and (min-width: 720px)");
 
         if (mediaQuery.matches && check) {
             check = false;
@@ -87,7 +100,13 @@ window.addEventListener("DOMContentLoaded", function () {
                 dataAppend();
             }
         } else if (mediaQueryPC.matches) {
+            const figures = document.querySelectorAll(".castInfo figure");
             check = true;
+            for (var i = 0; i < figures.length; i++) {
+                if (!figures[i].classList.contains("fig01")) {
+                    figures[i].remove(figures[i]);
+                }
+            }
         }
     }
     function create(i) {
