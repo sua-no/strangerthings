@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
     const galleryList = document.querySelector(".galleryInner ul"),
         selectImg = document.querySelector(".selectImg"),
-        scrollBar = document.querySelector(".scrollBar"),
         popImg = selectImg.querySelector("img"),
         closer = document.querySelector(".closer"),
         prevG = document.querySelector(".prevG"),
@@ -46,7 +45,9 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     function popup(e) {
         target = e.target;
-        for (; target.nodeName != "LI"; target = target.parentNode);
+        try {
+            for (; target.nodeName != "LI"; target = target.parentNode);
+        } catch{ }
         idx = index(target);
         imgChange();
         selectImg.classList.add("active");
@@ -54,16 +55,17 @@ window.addEventListener("DOMContentLoaded", function () {
     //li 인덱스
     function index(target) {
         let hole = 0;
-        while ((target = target.previousSibling) != null) {
-            if (target.nodeType != 3) {
-                hole++;
+        try {
+            while ((target = target.previousSibling) != null) {
+                if (target.nodeType != 3) {
+                    hole++;
+                }
             }
-        }
+        } catch{ }
         return hole;
     }
     function hide() {
         selectImg.classList.remove("active");
-        scrollBar.style.display = "block";
     }
     function imgChange() {
         imgSrc = galleryList.children[idx].children[0].getAttribute("src");
@@ -71,14 +73,14 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     function prevImg() {
         if (idx == 0) {
-            idx = last - 1;
+            idx = count - 1;
         } else {
             idx--;
         }
         imgChange();
     }
     function nextImg() {
-        if (idx == last - 1) {
+        if (idx == count - 1) {
             idx = 0;
         } else {
             idx++;

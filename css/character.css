@@ -135,7 +135,14 @@ section .characterList .characterBox ul{
 }
 section .characterList .characterBox ul li{
     margin-right: 13px;
+    filter: grayscale(65%);
     cursor: pointer;
+}
+section .characterList .characterBox ul li:hover{
+    filter: grayscale(0%);
+}
+section .characterList .characterBox ul li.active{
+    filter: grayscale(0%);
 }
 section .characterList .characterBox ul li:last-child{
     margin-right: 0;

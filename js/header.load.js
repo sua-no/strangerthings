@@ -9,12 +9,14 @@ window.addEventListener("DOMContentLoaded", function () {
     headerHTML.addEventListener('load', function () {
         header.innerHTML = headerHTML.response;
         btnManager();
-        // characterBox.addEventListener("wheel", function () {
-        //     scroll = false;
-        //     setTimeout(function () {
-        //         scroll = true;
-        //     }, 100);
-        // });
+        try {
+            characterBox.addEventListener("wheel", function () {
+                scroll = false;
+                setTimeout(function () {
+                    scroll = true;
+                }, 100);
+            });
+        } catch{ }
         window.addEventListener("wheel", headerHide);
         function headerHide() {
             if (scroll) {

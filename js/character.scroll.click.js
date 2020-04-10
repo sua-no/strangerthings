@@ -9,8 +9,8 @@ window.addEventListener("DOMContentLoaded", function () {
         character = document.querySelector(".castInfo div span:nth-of-type(1)"),
         cast = document.querySelector(".castInfo div span:nth-of-type(2)"),
         caption = document.querySelector(".castInfo div figcaption");
-
-    let liIdx = 0, idx = 0, data, figNode, imgNode, txtBox, txt1, txt2, liWidth = 0, check = true;
+    let liIdx = 0, idx = 0, data, figNode, imgNode, txtBox, txt1, txt2, liWidth = 0,
+        check = true, prevSelect = castList.children[0];
 
     //load JSON
     const xhr = new XMLHttpRequest();
@@ -22,16 +22,20 @@ window.addEventListener("DOMContentLoaded", function () {
         castMobile();
         window.addEventListener("resize", castMobile);
     }
+
     ulSize();
     characterBox.addEventListener("wheel", listMove);
     //pc - figure data change
     castList.addEventListener("click", castSelect);
     function castSelect(e) {
         target = e.target;
-        for (; target.nodeName != "LI"; target = target.parentNode);
-        liIdx = index(target);
+        try {
+            for (; target.nodeName != "LI"; target = target.parentNode);
+            liIdx = index(target);
+        } catch{ }
         figChange();
         figAnimation();
+        filterChange(target);
     }
     //get index
     function index(target) {
@@ -55,6 +59,16 @@ window.addEventListener("DOMContentLoaded", function () {
         setTimeout(function () {
             figImg.parentElement.classList.remove("active");
         }, 800);
+    }
+    function filterChange(target) {
+        if (target == prevSelect) {
+            return;
+        }
+        try {
+            prevSelect.classList.remove("active");
+            target.classList.add("active");
+        } catch{ }
+        prevSelect = target;
     }
     //scroll size
     function ulSize() {

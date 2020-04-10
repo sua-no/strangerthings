@@ -1,13 +1,16 @@
 window.addEventListener("DOMContentLoaded", function () {
-    const mainUp = document.querySelectorAll(".mainup");
-    const slide = document.querySelectorAll(".slide");
-    const rightNav = document.querySelectorAll(".rightNav");
-    const span = rightNav[0].querySelectorAll("span");
-    let pageIndex = 0;
-    let clickIndex;
-    let timer = true;
+    const mainUp = document.querySelectorAll(".mainup"),
+        slide = document.querySelectorAll(".slide"),
+        rightNav = document.querySelectorAll(".rightNav"),
+        span = rightNav[0].querySelectorAll("span");
+    let pageIndex = 0,
+        clickIndex, start, end, compare,
+        timer = true;
+
     //touch
-    window.addEventListener("touchstart", touch);
+    window.addEventListener("touchstart", touchStart);
+    window.addEventListener("touchend", touchEnd);
+
     //anmaition-delay
     for (var i = 0; i < mainUp.length; i++) {
         mainUp[i].style = "animation-delay : " + i * 0.5 + "s";
@@ -57,18 +60,37 @@ window.addEventListener("DOMContentLoaded", function () {
         }
     }
     // touch
-    function touch(e) {
-        console.log(e.clientY);
+    function touchStart(e) {
+        // console.log(e.targetTouches[0].clientY);
+        start = e.targetTouches[0].clientY;
+        // console.log(start);
+    }
+    function touchEnd(e) {
+        // console.log(e.changedTouches[0].clientY);
+        end = e.changedTouches[0].clientY;
+        compare = start - end;
+        if (80 <= compare) {
+            // console.log("페이지업");
+            pageUp();
+        } else if (0 > compare) {
+            // console.log("페이지 다운");
+            pageDown()
+        }
     }
     //page up
     function pageUp() {
-        slide[pageIndex].style.transform = "translateY(-100%)";
-        pageIndex++;
+        try {
+            slide[pageIndex].style.transform = "translateY(-100%)";
+            pageIndex++;
+        } catch{ }
     }
     //page down
     function pageDown() {
-        slide[pageIndex - 1].style.transform = "translateY(0%)";
-        pageIndex--;
+        try {
+            slide[pageIndex - 1].style.transform = "translateY(0%)";
+            pageIndex--;
+
+        } catch{ }
     }
     //color change
     function spanColor() {
