@@ -27,6 +27,9 @@ window.addEventListener("DOMContentLoaded", function () {
             if (first <= i && i < last) {
                 liNode = document.createElement("li");
                 imgNode = document.createElement("img");
+                if (first >= 8) {
+                    liNode.classList.add("active");
+                }
                 imgNode.src = data.gallery[i];
                 liNode.append(imgNode)
                 galleryList.append(liNode);
@@ -38,6 +41,7 @@ window.addEventListener("DOMContentLoaded", function () {
         first += itemRow;
         last += itemRow;
         galleryLoad();
+
         selectImg.classList.add("active2");
         if (count == data.gallery.length) {
             more.style.display = "none";

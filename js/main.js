@@ -61,19 +61,14 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     // touch
     function touchStart(e) {
-        // console.log(e.targetTouches[0].clientY);
         start = e.targetTouches[0].clientY;
-        // console.log(start);
     }
     function touchEnd(e) {
-        // console.log(e.changedTouches[0].clientY);
         end = e.changedTouches[0].clientY;
         compare = start - end;
         if (80 <= compare) {
-            // console.log("페이지업");
             pageUp();
         } else if (0 > compare) {
-            // console.log("페이지 다운");
             pageDown()
         }
     }
