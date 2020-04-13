@@ -258,7 +258,7 @@ footer p {
 /* tablet */
 @media all and (max-width: 1024px){
     section .galleryInner ul li{
-        width: 32%;
+        width: 48%;
     }
     section .galleryInner .selectImg .galleryBtn{
         width: 70%;

@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
     const characterBox = document.querySelector(".characterBox div:nth-of-type(1)"),
         castList = document.querySelector(".characterBox ul"),
         leftGradient = document.querySelector(".leftGradient"),
@@ -76,6 +76,7 @@ window.addEventListener("DOMContentLoaded", function () {
             liWidth += castList.children[i].offsetWidth;
         }
         liWidth += 13 * (castList.children.length - 1);
+        console.log(liWidth);
     }
     //horiziontal scroll
     function listMove(e) {

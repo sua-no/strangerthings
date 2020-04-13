@@ -53,7 +53,6 @@ section .inner{
     width: 75%;
     margin: 0 auto;
     padding: 230px 0 0;
-    padding: 11.9791% 0 0;
     overflow: hidden;
 }
 section .inner .subCopy{
@@ -265,7 +264,7 @@ section .inner .viewBtn a:hover{
 }
 /* gallery */
 .gallery{
-    z-index: 80;
+    z-index: 20;
     background: url('../img/back_04.jpg') no-repeat center center/ cover;    
 }
 .gallery .inner{
@@ -275,14 +274,14 @@ section .inner .viewBtn a:hover{
 }
 .gallery .gallerySlide{
     width: 100%;
-    margin-top: 10%;
+    margin-top: 120px;
     display: flex;
     align-items: center;
     position: relative;
     justify-content: center;
 }
 .gallery .gallerySlide .mainImg{
-    width: 45%;
+    width: 50%;
     position: absolute;
     z-index: 5;
     display: flex;
@@ -293,12 +292,18 @@ section .inner .viewBtn a:hover{
     display: block;
     width: 90%;
     box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
-    /* filter: blur(0%);
-    transition: .35s; */
 }
-/* .gallery .gallerySlide .mainImg.active img{
-    filter: blur(50%);
-} */
+.gallery .gallerySlide .mainImg.active{
+    animation: gallery .35s;
+}
+@keyframes gallery{
+    0%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 .gallery .gallerySlide .mainImg .galleryBtn{
     width: 100%;
     position: absolute;
@@ -325,10 +330,36 @@ section .inner .viewBtn a:hover{
 .gallery .gallerySlide .secondImg{
     width: 90%
 }
+.gallery .gallerySlide .secondImg.next{
+    animation: next .35s;
+}
+.gallery .gallerySlide .secondImg.prev{
+    animation: prev .35s;
+}
+@keyframes next{
+    0%{
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes prev{
+    0%{
+        transform: translateX(10%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
 .gallery .gallerySlide .secondImg img{
     width: 28%;
     float: left;
-    filter: brightness(70%);
+    filter: brightness(70%) blur(1px);
 }
 .gallery .gallerySlide .secondImg img:nth-of-type(2){
     float: right;
@@ -471,7 +502,60 @@ footer p {
         transform: translateY(0px);
     }
     /* gallery */
-    
+    .gallery .gallerySlide{
+        margin-top: 5%;
+    }
+    .gallery .gallerySlide .mainImg{
+        width: 75%;
+        justify-content: center;
+    }
+    .gallery .gallerySlide .mainImg img{
+        width: 100%;
+    }
+    .gallery .gallerySlide .mainImg .galleryBtn{
+        width: 8%;
+        height: 130%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .gallery .gallerySlide .mainImg .galleryBtn a{
+        transform: rotate(90deg);
+    }
+    .gallery .gallerySlide .secondImg{
+        width: 50%;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    @keyframes next{
+        0%{
+            transform: translateY(-10%);
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+    @keyframes prev{
+        0%{
+            transform: translateY(10%);
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(0%);
+            opacity: 1;
+        }
+    }
+    .gallery .gallerySlide .secondImg img{
+        width: 320px;
+        height: 175px;
+        float: none;
+    }
 }
 /* mobile */
 @media all and (max-width: 720px){
@@ -634,5 +718,14 @@ footer p {
         background: url("../img/icon/characters_arrow.png") no-repeat left center/cover;        
     }
     /* gallery */
-    
+    .gallery .gallerySlide .mainImg{
+        width: 95%;
+    }
+    .gallery .gallerySlide .secondImg{
+        height: 55vh;
+    }
+    .gallery .gallerySlide .secondImg img{
+        width: 260px;
+        height: 142px;
+    }
 }

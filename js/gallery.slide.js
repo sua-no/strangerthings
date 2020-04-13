@@ -3,8 +3,10 @@ window.addEventListener("DOMContentLoaded", function () {
         prevBtn = document.querySelector(".galleryPrev"),
         nextBtn = document.querySelector(".galleryNext"),
         prevImg = document.querySelector(".prevImg"),
-        nextImg = document.querySelector(".nextImg");
+        nextImg = document.querySelector(".nextImg"),
+        secondImg = document.querySelector(".secondImg");
     let idx = 1; prevIdx = 0, nextIdx = 0;
+
     //load JSON
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "gallery.json");
@@ -13,7 +15,9 @@ window.addEventListener("DOMContentLoaded", function () {
         data = JSON.parse(xhr.responseText);
     }
     prevBtn.addEventListener("click", prevChange);
+    prevImg.addEventListener("click", prevChange);
     nextBtn.addEventListener("click", nextChange);
+    nextImg.addEventListener("click", nextChange);
 
     function prevChange() {
         ++idx;
@@ -26,6 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
             nextIdx = idx + 1;
         }
         changeImages();
+        prevAnimation();
     }
     function nextChange() {
         --idx;
@@ -38,15 +43,27 @@ window.addEventListener("DOMContentLoaded", function () {
             prevIdx = idx - 1;
         }
         changeImages();
+        nextAnimation();
     }
     function changeImages() {
         mainImg.children[0].src = data.gallery[idx];
         prevImg.src = data.gallery[prevIdx];
         nextImg.src = data.gallery[nextIdx];
-        // mainImg.classList.add("active");
-        // setTimeout(function () {
-        //     mainImg.classList.remove("active");
-        // }, 350);
     }
-
+    function prevAnimation() {
+        mainImg.classList.add("active");
+        secondImg.classList.add("prev");
+        setTimeout(function () {
+            mainImg.classList.remove("active");
+            secondImg.classList.remove("prev");
+        }, 350);
+    }
+    function nextAnimation() {
+        mainImg.classList.add("active");
+        secondImg.classList.add("next");
+        setTimeout(function () {
+            mainImg.classList.remove("active");
+            secondImg.classList.remove("next");
+        }, 350);
+    }
 });

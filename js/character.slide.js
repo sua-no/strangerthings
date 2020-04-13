@@ -13,10 +13,14 @@ window.addEventListener("DOMContentLoaded", function () {
     prevBtn.addEventListener("click", slideRight);
     //mediaquery - ul, li size
     function inIt() {
-        const mediaQuery = window.matchMedia("screen and (max-width: 720px)");
-        const mediaQueryPc = window.matchMedia("screen and (min-width: 1024px)");
+        const mediaQuery = window.matchMedia("screen and (max-width: 720px)"),
+            mediaQueryTablet = window.matchMedia("screen and (min-width: 720px)"),
+            mediaQueryPc = window.matchMedia("screen and (min-width: 1024px)");
         if (mediaQueryPc.matches) {
             ulSizePc();
+        } else if (mediaQueryTablet.matches) {
+            liSort();
+            setTimeout(ulSizeTablet, 300);
         } else if (mediaQuery.matches) {
             liSort();
             setTimeout(ulSize, 300);
@@ -26,6 +30,11 @@ window.addEventListener("DOMContentLoaded", function () {
         liHeight = characterli[0].getBoundingClientRect().height;
         characterInfo.style.height = liHeight + "px";
         characterUl.style.height = liHeight + "px";
+    }//tablet ver
+    function ulSizeTablet() {
+        liHeight = characterli[0].getBoundingClientRect().height;
+        characterInfo.style.height = liHeight * 2 + "px";
+        characterUl.style.height = liHeight * 2 + "px";
     }
     //pc ver
     function ulSizePc() {

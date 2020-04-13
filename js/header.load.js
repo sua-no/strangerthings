@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector("header"),
-        characterBox = document.querySelector(".characterBox div:nth-of-type(1)");
+        characterBox = document.querySelector(".characterBox div:nth-of-type(1)"),
+        section = document.querySelector("section");
     let scroll = true;
 
     const headerHTML = new XMLHttpRequest();
@@ -18,7 +19,10 @@ window.addEventListener("DOMContentLoaded", function () {
             });
         } catch{ }
         window.addEventListener("wheel", headerHide);
-        function headerHide() {
+        function headerHide(e) {
+            if (e.target == header) {
+                return;
+            }
             if (scroll) {
                 if (event.deltaY > 0) {
                     header.classList.add("active");
@@ -26,6 +30,7 @@ window.addEventListener("DOMContentLoaded", function () {
                     header.classList.remove("active");
                 }
             }
+
         }
     });
 });
