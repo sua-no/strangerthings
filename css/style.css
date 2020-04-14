@@ -81,7 +81,7 @@ section .inner .viewBtn a{
     position: relative;
     color: #fff;
     font-size: 14px;
-    transform: translateX(-100%);
+    /* transform: translateX(-100%); */
     opacity: 0.5;
     transition: .35s;
 }
@@ -109,7 +109,7 @@ section .inner .viewBtn a::after{
 }
 section .inner .viewBtn a:hover{
     opacity: 1;
-    transform: translateX(0%);
+    /* transform: translateX(0%); */
 }
 /* main */
 .main{
@@ -368,7 +368,7 @@ section .inner .viewBtn a:hover{
     float: right;
 }
 .gallery .inner .viewBtn{
-    margin-top: 6%;
+    margin-top: 10%;
 }
 /* leftnav */
 .leftNav {
