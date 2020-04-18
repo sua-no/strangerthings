@@ -49,6 +49,7 @@ window.addEventListener("load", function () {
     }
     //click - figure contents change
     function figChange() {
+        console.log( data.castInfo[liIdx].img);
         figImg.src = data.castInfo[liIdx].img;
         character.textContent = data.castInfo[liIdx].chracter;
         cast.textContent = data.castInfo[liIdx].cast;
@@ -76,7 +77,6 @@ window.addEventListener("load", function () {
             liWidth += castList.children[i].offsetWidth;
         }
         liWidth += 13 * (castList.children.length - 1);
-        console.log(liWidth);
     }
     //horiziontal scroll
     function listMove(e) {
