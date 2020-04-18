@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@font-face{
+    font-family:"netflix";
+    src:url("../bebas-neue.woff") format("woff");
+}
 html,
 body,
 div,
@@ -75,12 +80,10 @@ video {
     vertical-align: baseline;
     background: transparent;
 }
-
 body {
     font-family: "Raleway", sans-serif;
     line-height: 1;
 }
-
 article,
 aside,
 details,
@@ -94,12 +97,10 @@ nav,
 section {
     display: block;
 }
-
 nav ul,
 li {
     list-style: none;
 }
-
 a {
     margin: 0;
     padding: 0;
@@ -107,42 +108,4 @@ a {
     background: transparent;
     text-decoration: none;
     display: block;
-}
-
-img {
-    vertical-align: top;
-}
-
-hr {
-    display: block;
-    height: 2px;
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-input,
-textarea {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    border-bottom: 1px solid #757575;
-    color: #3f51b5;
-    font-family: "Montserrat";
-    font-size: 12px;
-    vertical-align: top;
-    border-radius: 0;
-    box-sizing: content-box;
-    appearance: none;
-}
-
-::-moz-input-placeholder,
-::-moz-textarea-placeholder {
-    color: #3f51b5;
-}
-
-::-webkit-input-placeholder,
-::-webkit-textarea-placeholder {
-    color: #3f51b5;
 }

@@ -5,44 +5,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>:: stranger things</title>
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/header.load.js"></script>
     <script src="js/main.js"></script>
-    <!-- <script src="js/loading.js"></script> -->
     <script src="js/menu_toggle_btn.js"></script>
     <script src="js/character.slide.js"></script>
-    <script src="js/gallery.js"></script>
+    <script src="js/gallery.slide.js"></script>
 
-    <!-- <script src="js/copy.js"></script> -->
 </head>
 
 <body>
-    <!-- <div class="loadImg">
-        <video autoplay loop muted>
-            <source src="img/loading.mp4" type="video/mp4">
-        </video>
-    </div> -->
-    <div id="wrap">
+    <div class="wrap">
         <header>
-            <h1 class="logo">
-                <a href="index.html"><img src="img/icon/logo.png" alt="logo" /></a>
-            </h1>
-            <span class="menuToggleBtn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-            <nav class="gnb">
-                <ul>
-                    <li><a href="">TRAILERS</a></li>
-                    <li><a href="">CHARACTERS</a></li>
-                    <li><a href="">GALLERY</a></li>
-                </ul>
-            </nav>
         </header>
         <section class="main slide">
+            <h2>stranger things</h2>
             <video autoplay loop muted>
-                <source src="img/video/Stranger Things 3 _ Official Trailer.mp4" type="video/mp4" />
+                <source src="img/video/Stranger_Things_3_Official_Trailer.mp4" type="video/mp4" />
             </video>
             <div class="mainCopy">
                 <span>
@@ -51,7 +30,7 @@
                 </span>
                 <span><b class="mainup">series</b></span>
                 <span><b class="mainup">stranger</b></span>
-                <span><b class="mainup">things</span></span>
+                <span><b class="mainup">things</b></span>
             </div>
         </section>
         <section class="trailers slide">
@@ -59,14 +38,19 @@
                 <div class="subCopy">
                     <h2 class="secTit">trailers</h2>
                     <p>Seanson 3 : Final Trailer</p>
+                    <span>In the summer of 1985 in Hawkins, the newly opened Starcourt Mall has become the focal point
+                        of the town, driving other stores out of business. Hawkins chief of police Jim Hopper is
+                        conflicted over Eleven and Mike's budding relationship, while Joyce considers moving out of
+                        Hawkins for better prospects, leaving the state of the children's friendships and her own
+                        relationship with Hopper in the air.</span>
                 </div>
                 <div class="trailersMedia">
                     <video controls>
-                        <source src="img/video/Stranger Things 3 _ Official Final Trailer.mp4" />
+                        <source src="img/video/Stranger_Things_3_Official_Final_Trailer.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <div class="viewBtn">
-                    <a href="sub1.html">VIEW MORE</a>
+                    <a href="trailer.html">VIEW MORE</a>
                 </div>
             </div>
         </section>
@@ -82,10 +66,11 @@
                 <div class="characterInfo">
                     <div>
                         <ul>
-                            <li><img src="img/characters_01.jpg" alt=""><span>Mike Wheeler</span></li>
-                            <li><img src="img/characters_02.jpg" alt=""><span>Will Byers</span></li>
-                            <li><img src="img/characters_03.jpg" alt=""><span>Eleven</span></li>
-                            <li><img src="img/characters_04.jpg" alt=""><span>Dustin Henderson</span></li>
+                            <li><img src="img/characters_01.jpg" alt="Mike Wheeler"><span>Mike Wheeler</span></li>
+                            <li><img src="img/characters_02.jpg" alt="Will Byers"><span>Will Byers</span></li>
+                            <li><img src="img/characters_03.jpg" alt="Eleven"><span>Eleven</span></li>
+                            <li><img src="img/characters_04.jpg" alt="Dustin Henderson"><span>Dustin Henderson</span>
+                            </li>
                         </ul>
                     </div>
                     <div class="characterBtn">
@@ -93,9 +78,8 @@
                         <a href="#" class="next btn b2"></a>
                     </div>
                 </div>
-
                 <div class="viewBtn">
-                    <a href="sub2.html">VIEW MORE</a>
+                    <a href="character.html">VIEW MORE</a>
                 </div>
             </div>
         </section>
@@ -104,33 +88,23 @@
                 <div class="subCopy">
                     <h2 class="secTit">gallery</h2>
                 </div>
-                <div class="galleryInner">
-                    <article class="selectImg ">
-                        <img src="img/gallery_01.jpg" alt="">
+                <div class="gallerySlide">
+                    <div class="mainImg">
+                        <img src="img/gallery_02.jpg" alt="">
                         <div class="galleryBtn">
-                            <a href="#" class="prevG btn b1"></a>
-                            <a href="#" class="nextG btn b2"></a>
+                            <a href="#" class="galleryPrev"></a>
+                            <a href="#" class="galleryNext"></a>
                         </div>
-                        <span class="closer"></span>
-                    </article>
-                    <ul>
-                        <li><img src="img/gallery_01.jpg" alt=""></li>
-                        <li><img src="img/gallery_02.jpg" alt=""></li>
-                        <li><img src="img/gallery_03.jpg" alt=""></li>
-                        <li><img src="img/gallery_04.jpg" alt=""></li>
-                        <li><img src="img/gallery_05.jpg" alt=""></li>
-                        <li><img src="img/gallery_06.jpg" alt=""></li>
-                        <li><img src="img/gallery_07.jpg" alt=""></li>
-                        <li><img src="img/gallery_08.jpg" alt=""></li>
-                    </ul>
-                    <div class="scrollBar">
-                        <span class="scrollRed"></span>
+                    </div>
+                    <div class="secondImg">
+                        <img class="prevImg" src="img/gallery_01.jpg" alt="">
+                        <img class="nextImg" src="img/gallery_03.jpg" alt="">
                     </div>
                 </div>
-
                 <div class="viewBtn">
-                    <a href="sub2.html">VIEW MORE</a>
+                    <a href="gallery.html">VIEW MORE</a>
                 </div>
+            </div>
         </section>
         <nav class="leftNav">
             <ul>

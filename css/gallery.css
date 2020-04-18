@@ -1,0 +1,341 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+
+.wrap{
+    width: 100%;
+}
+/* header */
+header {
+    width: 100%;
+    height: 180px;
+    margin-top: 50px;
+    padding: 0 10%;
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(0%);
+    transition: .35s;
+}
+header.active{
+    transform: translateY(-100%);
+}
+header .menuToggleBtn {
+    display: none;
+}
+header .gnb ul {
+    text-align: right;
+}
+header .gnb ul li {
+    display: inline-block;
+    margin-left: 50px;
+}
+header .gnb ul li a {
+    padding: 2% 0;
+    font-weight: bold;
+    color: #a5a5a5;
+    transition: 0.5s;
+}
+header .gnb ul li:hover a {
+    color: #c00000c5;
+}
+/* contents */
+section{
+    width: 100%;
+    height: 100vh;
+    padding: 270px 0 100px;
+    background: url("../img/back-gallery.jpg") no-repeat center center/cover;
+    overflow: scroll;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+section .visualCopy div{
+    margin-bottom: 60px;
+    text-align: center;
+    color: #fff;
+    transform: translateY(100px);
+    opacity: 0;
+    animation: visualup .7s forwards;
+}
+@keyframes visualup{
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+section .visualCopy h2{
+    font-size: 40px;
+}
+section .visualCopy span{
+    font-size: 20px;
+    opacity: .7;
+}
+section .visualCopy h2:after{
+    width: 30px;
+    height: 1px;
+    background: #a5a5a5;
+    display: block;
+    content: '';
+    margin: 20px auto;
+}
+section .galleryInner{
+    width: 80%;
+    margin: 0 auto;
+    background: rgba(0, 0, 0,.5);
+    padding: 4% 10%;
+    box-sizing: border-box;
+    position: relative;
+}
+section .galleryInner .selectImg{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 30px ;
+    transform: translateY(50%);
+    opacity: 0;
+    transition: .5s ease-in-out;
+}
+section .galleryInner .selectImg.active{
+    transform: translateY(0%);
+    opacity: 1;
+    z-index: 5;
+}
+section .galleryInner .selectImg.active2{
+    height: 50%;
+    top: calc(50% - 25%);
+}
+section .galleryInner .selectImg img{
+    width: 40%;
+}
+section .galleryInner .selectImg .galleryBtn{
+    width: 50%;
+    position: absolute;
+}
+.btn {
+    height: 30px;
+    width: 19px;
+    opacity: 0.6;
+    transition: all 0.3s ease-in;
+}
+.b1 {
+    float: left;
+    background: url("../img/icon/characters_arrow.png") no-repeat left center /cover;
+}
+.b2 {
+    float: right;
+    background: url("../img/icon/characters_arrow.png") no-repeat right center /cover;
+}
+.b1:hover,.b2:hover,.closer:hover {
+    opacity: 1;
+}
+.closer{
+    width: 24px;
+    height: 24px;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: url("../img/icon/close.png") no-repeat center center /contain;
+    opacity: 0.6;
+    cursor: pointer;
+}
+section .galleryInner{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+}
+section .galleryInner ul{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+    opacity: 0;
+    transition: .5s .5s;
+}
+section .galleryInner ul li{
+    width: 24%;
+    margin-bottom: 1%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .35s ease-in-out;
+}
+section .galleryInner ul li.active{
+    animation: liUp .5s ease-in;
+}
+@keyframes liUp{
+    0%{
+        margin-top: 80px;
+        opacity: 0;
+    }
+    100%{
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+section .galleryInner ul li img{
+    width: 100%;
+    transition: .35s ease-in-out;
+}
+section .galleryInner ul li::after{
+    width: 20px;
+    height: 20px;
+    background: url('../img/icon/gallery_mag.png') no-repeat center center/contain;
+    display: block;
+    content: '';
+    position: absolute;
+    left: calc(50% - 10px);
+    top: calc(50% - 10px);
+    visibility: hidden;
+    transition: .35s;
+}
+section .galleryInner ul li:hover
+{
+    filter: brightness(50%);
+}
+section .galleryInner ul li:hover img {
+    transform: scale(1.1);
+}
+section .galleryInner ul li:hover::after
+{
+    visibility: visible;
+}
+section .galleryInner .more{
+    width: 90px;
+    height: 30px;
+    margin-top: 3%;
+    position: relative;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.7);
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    font-family: "Raleway", sans-serif;
+    font-weight: lighter;
+    cursor: pointer;
+    overflow: hidden;
+}
+section .galleryInner .more:after{
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    background: rgba(255,255,255,0.5);
+    opacity: 0;
+    transition: .35s;
+
+}
+section .galleryInner .more:hover:after{
+    left: 0;
+    opacity: 1;
+}
+/* footer */
+footer {
+    position: fixed;
+    left: 10%;
+    bottom: 8%;
+    z-index: 100;
+}
+footer p {
+    color: #676767;
+    font-weight: 100;
+    font-size: 14px;
+}
+/* tablet */
+@media all and (max-width: 1024px){
+    section .galleryInner ul li{
+        width: 48%;
+    }
+    section .galleryInner .selectImg .galleryBtn{
+        width: 70%;
+    }
+    section .galleryInner .selectImg img{
+        width: 60%;
+    }
+}
+/* mobile */
+@media all and (max-width: 720px){
+    /* header */
+    header{
+        height: 13%;
+        margin-top: 0;
+        padding: 0 5%;
+    }
+    header .menuToggleBtn {
+        display: block;
+        width: 34px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        z-index: 50;
+        transition: .35s;
+    }
+    header .menuToggleBtn span{
+        width: 100%;
+        height: 2px;
+        background: #fff;
+        transition: .35s;
+        transform-origin: 13% 13%;
+    }
+    header .gnb{
+        width: 40vw;
+        height: 100vh;
+        padding: 150px 5%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: rgba(0, 0, 0,.8);
+        transform: translateX(100%);
+        transition: .35s;
+    }
+    header .gnb ul li{
+        padding: 8% 0;
+    }
+    header .menuToggleBtn.active span:nth-child(1){
+        transform: rotate(45deg);
+    }
+    header .menuToggleBtn.active span:nth-child(2){
+        opacity: 0;
+    }
+    header .menuToggleBtn.active span:nth-child(3){
+        transform: rotate(-45deg);
+    }
+    header .gnb.active{
+        transform: translateX(0);
+    }
+    section{
+        padding-top: 22%;
+    }
+    section .galleryInner ul li{
+        width: 100%;
+        margin-bottom: 2%;
+        cursor: default;
+    }
+    section .galleryInner .selectImg{
+        display: none;
+    }
+    section .galleryInner ul li:hover::before
+    {
+        opacity: 0;
+    }
+    section .galleryInner ul li:hover::after
+    {
+        visibility: hidden;
+    }
+}
