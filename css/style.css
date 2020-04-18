@@ -815,6 +815,7 @@ footer p {
     #gallery .galleryInner {
         clear: both;
         margin-top: 200px;
+        overflow: scroll;
     }
 
     #gallery .galleryInner .selectImg {
