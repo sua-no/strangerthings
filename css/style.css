@@ -670,7 +670,6 @@ footer p {
         height: 100%;
         overflow: hidden;
         position: relative;
-
     }
     .characters .inner .characterInfo ul{
         width: 100%;
@@ -679,17 +678,9 @@ footer p {
         left: 0;
         transition: 0.5s;
     }
-
-    #gallery .galleryInner {
-        clear: both;
-        margin-top: 200px;
-        overflow: scroll;
-        
-    }
     .characters .inner .characterInfo ul li {
         width: 100%;
         position: absolute;
-
     }
     .characters .inner .characterInfo ul li img{
         width: 100%;

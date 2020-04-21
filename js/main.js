@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", function () {
     }
     //wheel manager
     function wheelManager() {
-        if (timer == true) {
+        if (timer) {
             timer = false;
             //wheel down
             if (event.deltaY > 0) {
