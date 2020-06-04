@@ -14,16 +14,17 @@ window.addEventListener("DOMContentLoaded", function () {
     //mediaquery - ul, li size
     function inIt() {
         const mediaQuery = window.matchMedia("screen and (max-width: 720px)"),
-            mediaQueryTablet = window.matchMedia("screen and (min-width: 720px)"),
-            mediaQueryPc = window.matchMedia("screen and (min-width: 1024px)");
-        if (mediaQueryPc.matches) {
-            ulSizePc();
+            mediaQueryTablet = window.matchMedia("screen and (max-width: 1024px)")
+        if (mediaQuery.matches) {
+            liSort();
+            setTimeout(ulSize, 300);
+            console.log("mobile")
         } else if (mediaQueryTablet.matches) {
             liSort();
             setTimeout(ulSizeTablet, 300);
-        } else if (mediaQuery.matches) {
-            liSort();
-            setTimeout(ulSize, 300);
+            console.log("tablet")
+        } else {
+            setTimeout(ulSizePc, 300);
         }
     }
     function ulSize() {

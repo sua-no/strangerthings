@@ -1,7 +1,6 @@
 window.addEventListener("DOMContentLoaded", function () {
     const header = document.querySelector("header"),
-        characterBox = document.querySelector(".characterBox div:nth-of-type(1)"),
-        section = document.querySelector("section");
+        characterBox = document.querySelector(".characterBox div:nth-of-type(1)");
     let scroll = true;
 
     const headerHTML = new XMLHttpRequest();
